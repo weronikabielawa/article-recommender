@@ -14,7 +14,7 @@ links_df = pd.read_csv(DATA_FOLDER+'links/'+'spidersweb.csv')
 
 
 for index, row in links_df.iterrows():
-    resp = urllib.request.urlopen(row['spidersweb'])
+    resp = urllib.request.urlopen(row['url'])
     soup = BeautifulSoup(resp, parser, from_encoding=resp.info().get_param('charset'))
 
     page_content = ''.join([div.get_text() for div in soup.findAll('p')])
@@ -30,5 +30,4 @@ for index, row in links_df.iterrows():
     links_df.loc[index, 'title'] = title
 
 
-links_df.to_csv(DATA_FOLDER+'raw_data/'+'spidersweb.csv')
-#print(links_df.loc[0,'title'])
+links_df.to_csv(DATA_FOLDER+'raw_data/'+'spidersweb.csv', index=False)

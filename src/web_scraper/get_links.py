@@ -67,8 +67,8 @@ def save_data_to_csv(folder: str, page_name: str, data: List[str]) -> None:
     if not os.path.isdir(dir_path):
         os.mkdir(dir_path)
 
-    df = pd.DataFrame(data=data, columns=[page_name])
-    df.to_csv((dir_path+'/'+page_name+'.csv'))
+    df = pd.DataFrame(data=data, columns=['url'])
+    df.to_csv((dir_path+'/'+page_name+'.csv'), index=False)
 
 
 def filter_using_regex(pattern, list):
@@ -91,15 +91,15 @@ if __name__ == '__main__':
 
     for page in pages:
         links = get_all_links(page)
-        save_data_to_csv('links_unfiltered', page.page_name, links)
+        #save_data_to_csv('links_unfiltered', page.page_name, links)
 
         if page.filter:
             links = filter_using_regex(page.filter, links)
-            save_data_to_csv('links_filtered', page.page_name, links)
+            #save_data_to_csv('links_filtered', page.page_name, links)
 
         if page.fill:
             links = fill_page_link(page.fill, links)
-            save_data_to_csv('links_filled', page.page_name, links)
+            #save_data_to_csv('links_filled', page.page_name, links)
 
         save_data_to_csv('links', page.page_name, links)
 
