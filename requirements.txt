@@ -51,9 +51,6 @@ matplotlib-inline
 mergedeep
 mistune
 mkdocs
-mkl-fft
-mkl-random
-mkl-service
 morfeusz2
 murmurhash
 nbclient
