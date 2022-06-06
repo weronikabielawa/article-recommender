@@ -1,5 +1,129 @@
+argon2-cffi @ file:///opt/conda/conda-bld/argon2-cffi_1645000214183/work
+argon2-cffi-bindings @ file:///tmp/build/80754af9/argon2-cffi-bindings_1644553347904/work
+asgiref==3.5.2
+asttokens @ file:///opt/conda/conda-bld/asttokens_1646925590279/work
+attrs @ file:///opt/conda/conda-bld/attrs_1642510447205/work
+backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
+beautifulsoup4 @ file:///opt/conda/conda-bld/beautifulsoup4_1650462163268/work
+bleach==5.0.0
+blis @ file:///opt/conda/conda-bld/cython-blis_1651219782567/work
+Bottleneck @ file:///tmp/build/80754af9/bottleneck_1648010766492/work
+brotlipy==0.7.0
 bs4==0.0.1
-beautifulsoup4==4.10.0
-pandas==1.4.1
+catalogue @ file:///opt/conda/conda-bld/catalogue_1651218742349/work
+certifi==2022.5.18.1
+cffi @ file:///home/builder/ci_310/cffi_1642753365720/work
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+click @ file:///tmp/build/80754af9/click_1646056706450/work
+colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
+cryptography @ file:///tmp/build/80754af9/cryptography_1652101588599/work
+cymem @ file:///opt/conda/conda-bld/cymem_1651237256138/work
+debugpy==1.6.0
+decorator @ file:///opt/conda/conda-bld/decorator_1643638310831/work
+defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
+dj-database-url==0.5.0
+Django==4.0.5
+django-heroku==0.3.1
+entrypoints @ file:///tmp/build/80754af9/entrypoints_1649908313000/work
+executing @ file:///opt/conda/conda-bld/executing_1646925071911/work
+fastjsonschema==2.15.3
+ghp-import==2.1.0
+idna @ file:///tmp/build/80754af9/idna_1637925883363/work
+importlib-metadata==4.11.4
+iniconfig==1.1.1
+ipykernel==6.13.0
+ipython==8.4.0
+ipython-genutils @ file:///tmp/build/80754af9/ipython_genutils_1606773439826/work
+ipywidgets==7.7.0
+jedi @ file:///tmp/build/80754af9/jedi_1644315229345/work
+Jinja2 @ file:///opt/conda/conda-bld/jinja2_1647436528585/work
+jsonschema==4.6.0
+jupyter @ file:///home/builder/ci_310/jupyter_1641917225653/work
+jupyter-client==7.3.1
+jupyter-console @ file:///opt/conda/conda-bld/jupyter_console_1647002188872/work
+jupyter-core @ file:///opt/conda/conda-bld/jupyter_core_1651671229925/work
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==1.1.0
+langcodes @ file:///opt/conda/conda-bld/langcodes_1643477751144/work
+Markdown==3.3.7
+MarkupSafe @ file:///home/builder/ci_310/markupsafe_1640791577099/work
+matplotlib-inline==0.1.3
+mergedeep==1.3.4
+mistune @ file:///home/builder/ci_310/mistune_1640791641754/work
+mkdocs==1.3.0
+mkl-fft==1.3.1
+mkl-random @ file:///home/builder/ci_310/mkl_random_1641843545607/work
+mkl-service==2.4.0
 morfeusz2==1.99.4
+murmurhash @ file:///opt/conda/conda-bld/murmurhash_1651237169273/work
+nbclient==0.6.4
+nbconvert==6.5.0
+nbformat==5.4.0
+nest-asyncio @ file:///tmp/build/80754af9/nest-asyncio_1649830051683/work
+notebook @ file:///opt/conda/conda-bld/notebook_1651734535442/work
+numexpr @ file:///home/builder/ci_310/numexpr_1640791965184/work
+numpy @ file:///opt/conda/conda-bld/numpy_and_numpy_base_1652801679809/work
+packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
+pandas==1.4.1
+pandocfilters @ file:///opt/conda/conda-bld/pandocfilters_1643405455980/work
+parso @ file:///opt/conda/conda-bld/parso_1641458642106/work
+pathy @ file:///opt/conda/conda-bld/pathy_1651566172310/work
+pexpect @ file:///tmp/build/80754af9/pexpect_1605563209008/work
+pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
+pluggy==1.0.0
+preshed @ file:///opt/conda/conda-bld/preshed_1651240927559/work
+prometheus-client==0.14.1
+prompt-toolkit==3.0.29
+psutil==5.9.1
+psycopg2==2.9.3
+ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
+pure-eval @ file:///opt/conda/conda-bld/pure_eval_1646925070566/work
+py==1.11.0
+pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pydantic @ file:///opt/conda/conda-bld/pydantic_1651218725116/work
+Pygments==2.12.0
+pyOpenSSL @ file:///opt/conda/conda-bld/pyopenssl_1643788558760/work
+pyparsing @ file:///tmp/build/80754af9/pyparsing_1635766073266/work
+pyrsistent==0.18.1
+PySocks @ file:///home/builder/ci_310/pysocks_1640793678128/work
+pystempel==1.2.0
 pytest==7.1.2
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+pytz==2021.3
+PyYAML==6.0
+pyyaml_env_tag==0.1
+pyzmq==23.1.0
+qtconsole @ file:///opt/conda/conda-bld/qtconsole_1649078897110/work
+QtPy==2.1.0
+requests @ file:///opt/conda/conda-bld/requests_1641824580448/work
+Send2Trash @ file:///tmp/build/80754af9/send2trash_1632406701022/work
+shellingham @ file:///Users/ktietz/demo/mc3/conda-bld/shellingham_1629144685686/work
+sip==4.19.13
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+smart-open @ file:///opt/conda/conda-bld/smart_open_1651563547610/work
+sortedcontainers==2.4.0
+soupsieve @ file:///tmp/build/80754af9/soupsieve_1636706018808/work
+spacy @ file:///opt/conda/conda-bld/spacy_1651734543474/work
+spacy-legacy @ file:///opt/conda/conda-bld/spacy-legacy_1651648750835/work
+spacy-loggers @ file:///opt/conda/conda-bld/spacy-loggers_1643478552797/work
+sqlparse==0.4.2
+srsly @ file:///opt/conda/conda-bld/srsly_1651584738433/work
+stack-data @ file:///opt/conda/conda-bld/stack_data_1646927590127/work
+terminado==0.15.0
+testpath @ file:///tmp/build/80754af9/testpath_1624638946665/work
+thinc @ file:///opt/conda/conda-bld/thinc_1651591454033/work
+tinycss2==1.1.1
+tomli==2.0.1
+tornado @ file:///home/builder/ci_310/tornado_1640795392144/work
+tqdm @ file:///opt/conda/conda-bld/tqdm_1650891076910/work
+traitlets==5.2.2.post1
+typer @ file:///opt/conda/conda-bld/typer_1651237163820/work
+typing_extensions @ file:///opt/conda/conda-bld/typing_extensions_1647553014482/work
+urllib3 @ file:///opt/conda/conda-bld/urllib3_1650637206367/work
+wasabi @ file:///opt/conda/conda-bld/wasabi_1651237317563/work
+watchdog==2.1.8
+wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
+webencodings==0.5.1
+whitenoise==6.2.0
+widgetsnbextension==3.6.0
+zipp==3.8.0
