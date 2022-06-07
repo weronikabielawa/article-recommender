@@ -6,6 +6,8 @@ import pandas as pd
 import os
 from collections import namedtuple
 import re
+from requests.utils import requote_uri
+
 global DATA_FOLDER
 DATA_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../' + 'data/')
 
@@ -100,7 +102,7 @@ for index, row in links_df.iterrows():
 links_df.to_csv(DATA_FOLDER+'raw_data/'+'zielonewiadomosci.csv', index=False)"""
 
 
-"""
+
 links_df = pd.read_csv(DATA_FOLDER+'links/'+'ziemianarozdrozu.csv')
 
 i = 0
@@ -109,7 +111,7 @@ for index, row in links_df.iterrows():
     i+=1
 
     try:
-        resp = urllib.request.urlopen(row['url'])
+        resp = urllib.request.urlopen(requote_uri(row['url']))
         soup = BeautifulSoup(resp, parser, from_encoding=resp.info().get_param('charset'))
         page_content = ''.join([div.get_text() for div in soup.findAll('p')])
         links_df.loc[index, 'page_content'] = page_content
@@ -134,11 +136,11 @@ for index, row in links_df.iterrows():
 
 #print(links_df)
 
-links_df.to_csv(DATA_FOLDER+'raw_data/'+'ziemianarozdrozu.csv', index=False)"""
+links_df.to_csv(DATA_FOLDER+'raw_data/'+'ziemianarozdrozu.csv', index=False)
 
 
 
-links_df = pd.read_csv(DATA_FOLDER+'links/'+'ekologia.csv')
+"""links_df = pd.read_csv(DATA_FOLDER+'links/'+'ekologia.csv')
 
 i = 0
 for index, row in links_df.iterrows():
@@ -169,7 +171,7 @@ for index, row in links_df.iterrows():
 
 #print(links_df)
 
-links_df.to_csv(DATA_FOLDER+'raw_data/'+'ekologia.csv', index=False)
+links_df.to_csv(DATA_FOLDER+'raw_data/'+'ekologia.csv', index=False)"""
 
 
 
