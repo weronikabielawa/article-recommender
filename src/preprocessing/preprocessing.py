@@ -20,7 +20,7 @@ def remove_http(df, col_name='page_content'):
 
 
 def remove_puncuation(df, col_name='page_content'):
-    punctuation = '.,();-„”-:–?!"&'
+    punctuation = '.,();-„”-:–?!"&/'
     df[col_name] = df.apply(lambda row: "".join([i for i in row[col_name] if i not in punctuation]),
                                         axis=1)
     return df
@@ -36,6 +36,7 @@ def remove_stopwords(df, col_name='page_content'):
 def lowercase(df, col_name='page_content'):
     df[col_name] = df.apply(lambda row: " ".join([i.lower() for i in row[col_name].split(" ")]), axis=1)
     return df
+
 
 def remove_tokens(df, col_name='page_content'):
     tokens = ['\r', '\n', '\xa0']
@@ -69,7 +70,6 @@ def lemme(df, col_name='page_content'):
                 result.append(j[2][1].split(':')[0])
         return " ".join(result)
 
-
     for index, row in df.iterrows():
         df.loc[index, col_name] = lem(row[col_name])
 
@@ -91,7 +91,7 @@ def preprocess(df, col_name='page_content'):
     df = remove_puncuation(df, col_name)
     df = lowercase(df, col_name)
     df = remove_stopwords(df, col_name)
-    #df = lemme(df, col_name)
+    df = lemme(df, col_name)
 
 
     return df

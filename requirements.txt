@@ -4,12 +4,12 @@ asgiref
 asttokens
 attrs
 backcall
-beautifulsoup4
+beautifulsoup4==4.10.0
 bleach
 blis
 Bottleneck
 brotlipy
-bs4
+bs4==0.0.1
 catalogue
 certifi
 cffi
@@ -22,7 +22,7 @@ debugpy
 decorator
 defusedxml
 dj-database-url
-Django
+Django==4.0.5
 django-heroku
 entrypoints
 executing
@@ -52,7 +52,7 @@ matplotlib-inline
 mergedeep
 mistune
 mkdocs
-morfeusz2
+morfeusz2==1.99.4
 murmurhash
 nbclient
 nbconvert
@@ -60,9 +60,9 @@ nbformat
 nest-asyncio
 notebook
 numexpr
-numpy
+numpy==1.22.3
 packaging
-pandas
+pandas==1.4.1
 pandocfilters
 parso
 pathy
@@ -87,7 +87,7 @@ pyparsing
 pyrsistent
 PySocks
 pystempel
-pytest
+pytest==7.1.2
 python-dateutil
 pytz
 PyYAML
@@ -95,7 +95,7 @@ pyyaml-env-tag
 pyzmq
 qtconsole
 QtPy
-requests
+requests==2.27.1
 Send2Trash
 setuptools
 shellingham
@@ -129,3 +129,5 @@ wheel
 whitenoise
 widgetsnbextension
 zipp
+
+scikit-learn==1.0.1

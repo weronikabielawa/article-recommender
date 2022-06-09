@@ -20,6 +20,8 @@ import app.views
 
 urlpatterns = [
     path("", app.views.index, name="index"),
-    #path("db/", hello.views.db, name="db"),
+    path("recommender/", app.views.recommender, name="recommender"),
+    path("test/", app.views.home_view, name='home'),
+    path("results/", app.views.results, name="results"),
     path('admin/', admin.site.urls),
 ]
