@@ -96,3 +96,15 @@ def preprocess(df, col_name='page_content'):
 
     return df
 
+
+if __name__ == '__main__':
+    df_list = ['interia.csv', 'spidersweb.csv']
+    dfs = []
+
+    for df_name in df_list:
+        df = pd.read_csv(DATA_FOLDER + 'raw_data/' + df_name)
+        df = preprocess(df)
+        dfs.append(df)
+
+    dfs = pd.concat(dfs, ignore_index=True)
+    dfs.to_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv', index=False)

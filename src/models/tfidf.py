@@ -12,16 +12,8 @@ global DATA_FOLDER
 DATA_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../' + 'data/')
 
 
-def get_data(df_list):
-    dfs = []
-
-    for df_name in df_list:
-        df = pd.read_csv(DATA_FOLDER+'raw_data/'+ df_name)
-        df = preprocess(df)
-        dfs.append(df)
-
-    return pd.concat(dfs, ignore_index=True)
-
+def get_data():
+    return pd.read_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv')
 
 def train_tfidf(dfs):
     content = dfs['page_content']
@@ -38,9 +30,8 @@ def recommend(cosine_similarities, df, i, n=2):
 
 
 def train_and_recommend(article_content):
-    df_list = ['interia.csv', 'spidersweb.csv']
 
-    corpus = get_data(df_list)
+    corpus = get_data()
     new_data = preprocess(pd.DataFrame({'page_content': [article_content]}))
 
     corpus = pd.concat([corpus, new_data], ignore_index=True)
@@ -54,7 +45,6 @@ def train_and_recommend(article_content):
     return recommendations
 
 
-df_list = ['interia.csv', 'spidersweb.csv']
 
 #x = get_data(df_list)
 #y = train_tfidf(x)
