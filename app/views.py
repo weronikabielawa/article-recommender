@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .forms import InputForm
 from django.http import HttpResponseRedirect, HttpResponse
-from src.models.tfidf import *
+from src.models.tfidf import train_and_recommend
+from src.models.tok2vec_pretrained import recommend
 
 
 # Create your views here.
@@ -15,12 +16,14 @@ def home_view(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            x = train_and_recommend(form.cleaned_data['article_content'])
-            print(x)
-            print(type(form.cleaned_data))
+            tfidf = train_and_recommend(form.cleaned_data['article_content'])
+            tok2vec_pre = recommend(form.cleaned_data['article_content'])
+            #print(x)
+            #print(type(form.cleaned_data))
             #return HttpResponseRedirect('/')
             context['form'] = form
-            context['result'] = x.tolist()[0]
+            context['result_1'] = tfidf.tolist()[0]
+            context['result_2'] = tok2vec_pre
             return render(request, "home.html", context)
 
     # if a GET (or any other method) we'll create a blank form
