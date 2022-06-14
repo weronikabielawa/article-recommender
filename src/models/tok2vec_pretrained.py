@@ -8,15 +8,24 @@ DATA_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../'
 
 
 def recommend(article):
-    nlp = spacy.load('pl_core_news_lg')
+    nlp = spacy.load('pl_core_news_lg',  disable=[
+    'morphologizer',
+    'parser',
+    'lemmatizer',
+    'tagger',
+    'senter',
+    'attribute_ruler',
+    'ner'
+    ])
     print("?")
 
-    embed_mat = pd.read_pickle(DATA_FOLDER + 'preprocessed_data/embed_mat.pkl')
-    embed_mat = embed_mat['page_content'].to_numpy()
+    #embed_mat = pd.read_pickle(DATA_FOLDER + 'preprocessed_data/embed_mat.pkl')
+    #embed_mat = embed_mat['page_content'].to_numpy()
 
     df = pd.read_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv')
-    #df['page_content'] = df['page_content'].apply(lambda x: nlp(x))
-    #embed_mat = df['page_content'].values
+    df = df[~df['page_content'].isna()]
+    df['page_content'] = df['page_content'].apply(lambda x: nlp(x))
+    embed_mat = df['page_content'].values
 
     query_embed = nlp(article)
     print("here")
