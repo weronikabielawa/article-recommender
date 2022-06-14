@@ -18,7 +18,8 @@ def home_view(request):
             # redirect to a new URL:
             tfidf = train_and_recommend(form.cleaned_data['article_content'])
             context['form'] = form
-            context['result_1'] = tfidf.tolist()[0]
+            #context['result_1'] = tfidf.tolist()[0]
+
             render(request, "home.html", context)
 
             tok2vec_pre = recommend(form.cleaned_data['article_content'])
