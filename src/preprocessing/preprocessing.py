@@ -6,8 +6,6 @@ import re
 
 DATA_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../' + 'data/')
 
-df = pd.read_csv(DATA_FOLDER+'raw_data/ekologia.csv')
-
 
 def cut_ending(df, end_str, col_name='page_content'):
     df[col_name] = df.apply(lambda row: row[col_name].split(end_str)[0], axis=1)
