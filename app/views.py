@@ -21,12 +21,12 @@ def home_view(request):
             context['result_1'] = tfidf.tolist()[0]
 
 
-            #tok2vec_pre = recommend(form.cleaned_data['article_content'])
+            tok2vec_pre = recommend(form.cleaned_data['article_content'])
             #print(x)
             #print(type(form.cleaned_data))
             #return HttpResponseRedirect('/')
 
-            #context['result_2'] = tok2vec_pre
+            context['result_2'] = tok2vec_pre
             return render(request, "home.html", context)
 
     # if a GET (or any other method) we'll create a blank form
