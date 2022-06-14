@@ -129,5 +129,6 @@ wheel
 whitenoise
 widgetsnbextension
 zipp
-
+Django-storages
+boto3
 scikit-learn==1.0.1

@@ -13,7 +13,9 @@ DATA_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../'
 
 
 def get_data():
-    return pd.read_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv')
+    df = pd.read_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv')
+    return df[~df['page_content'].isna()]
+
 
 def train_tfidf(dfs):
     content = dfs['page_content']

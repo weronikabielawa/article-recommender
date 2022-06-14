@@ -91,20 +91,55 @@ def preprocess(df, col_name='page_content'):
     df = remove_puncuation(df, col_name)
     df = lowercase(df, col_name)
     df = remove_stopwords(df, col_name)
-    df = lemme(df, col_name)
-
+    #df = lemme(df, col_name)
 
     return df
 
 
-if __name__ == '__main__':
-    df_list = ['interia.csv', 'spidersweb.csv']
-    dfs = []
+def chunkify(df: pd.DataFrame, chunk_size: int):
+    start = 0
+    length = df.shape[0]
 
+    # If DF is smaller than the chunk, return the DF
+    if length <= chunk_size:
+        yield df[:]
+        return
+
+    # Yield individual chunks
+    while start + chunk_size <= length:
+        yield df[start:chunk_size + start]
+        start = start + chunk_size
+
+    # Yield the remainder chunk, if needed
+    if start < length:
+        yield df[start:]
+
+
+
+
+if __name__ == '__main__':
+    df_list = [
+        'ekologia.csv',
+        'interia.csv',
+        'spidersweb.csv',
+        'zielonewiadomosci.csv',
+        'ziemianarozdrozu.csv'
+    ]
+    dfs = []
+    #df_list = ['preprocessed_data.csv']
     for df_name in df_list:
-        df = pd.read_csv(DATA_FOLDER + 'raw_data/' + df_name)
-        df = preprocess(df)
-        dfs.append(df)
+        for chunk in pd.read_csv(DATA_FOLDER + 'raw_data/' + df_name, chunksize=20):
+        #print(df.columns)
+        #break
+
+        #for i in chunkify(df, 200):
+            x = preprocess(chunk)
+            dfs.append(x)
+            #print(x['page_content'])
+
+        print(df_name)
 
     dfs = pd.concat(dfs, ignore_index=True)
+    #dfs = dfs[~dfs['page_content'].isna()]
+    print(dfs[dfs['page_content'].isna()])
     dfs.to_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv', index=False)
