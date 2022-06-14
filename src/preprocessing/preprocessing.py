@@ -117,7 +117,7 @@ def chunkify(df: pd.DataFrame, chunk_size: int):
 
 
 
-if __name__ == '__main__':
+"""if __name__ == '__main__':
     df_list = [
         'ekologia.csv',
         'interia.csv',
@@ -142,4 +142,4 @@ if __name__ == '__main__':
     dfs = pd.concat(dfs, ignore_index=True)
     #dfs = dfs[~dfs['page_content'].isna()]
     print(dfs[dfs['page_content'].isna()])
-    dfs.to_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv', index=False)
+    dfs.to_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv', index=False) """

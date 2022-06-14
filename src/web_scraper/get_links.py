@@ -81,7 +81,7 @@ def fill_page_link(link, list):
     return [link+url for url in list if link not in url]
 
 
-if __name__ == '__main__':
+"""if __name__ == '__main__':
 
     pages = [UrlSchema("interia", "https://zielona.interia.pl/klimat,nPack,%", 'tile-magazine', '.+nId.+', 'https://zielona.interia.pl'),
              UrlSchema("ekologia", "https://www.ekologia.pl/wiadomosci/srodowisko,s%/", 'kategoriaDivArtykul', None, None),
@@ -102,4 +102,4 @@ if __name__ == '__main__':
             #save_data_to_csv('links_filled', page.page_name, links)
 
         save_data_to_csv('links', page.page_name, links)
-
+"""
