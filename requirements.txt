@@ -131,4 +131,5 @@ widgetsnbextension
 zipp
 Django-storages
 boto3
-scikit-learn==1.0.1
+scikit-learn==1.0.14
+https://github.com/explosion/spacy-models/releases/download/pl_core_news_lg-2.3.0/pl_core_news_lg-2.3.0.tar.gz
