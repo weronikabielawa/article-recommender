@@ -2,5 +2,4 @@ gunicorn
 Django
 spacy
 scikit-learn
-https://github.com/explosion/spacy-models/releases/download/pl_core_news_lg-3.3.0/pl_core_news_lg-3.3.0.tar.gz
 django_heroku
