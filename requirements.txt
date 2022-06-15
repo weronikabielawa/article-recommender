@@ -3,3 +3,4 @@ Django
 spacy
 scikit-learn
 django_heroku
+pandas
