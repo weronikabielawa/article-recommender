@@ -1,4 +1,4 @@
-notebooks/
-src/web_scraper/
-docs/
-test/
+/notebooks/
+/src/web_scraper/
+/docs/
+/test/
