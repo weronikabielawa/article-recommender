@@ -8,7 +8,7 @@ DATA_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../../'
 
 
 def recommend(article):
-    nlp = spacy.load('pl_core_news_lg',  disable=[
+    nlp = spacy.load('pl_core_news_sm',  disable=[
     'morphologizer',
     'parser',
     'lemmatizer',
