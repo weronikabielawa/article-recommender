@@ -6,3 +6,4 @@ django_heroku
 pandas
 morfeusz2
 https://github.com/explosion/spacy-models/releases/download/pl_core_news_md-3.3.0/pl_core_news_md-3.3.0.tar.gz
+gensim
