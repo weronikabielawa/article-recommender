@@ -14,6 +14,7 @@ app/__pycache__/
 staticfiles/
 PATH/
 site/
+notebooks
 
 
 
