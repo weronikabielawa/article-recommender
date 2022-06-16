@@ -15,6 +15,8 @@ staticfiles/
 PATH/
 site/
 notebooks
+data
+src/models/__pycache__
 
 
 
