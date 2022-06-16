@@ -124,22 +124,12 @@ if __name__ == '__main__':
         'ziemianarozdrozu.csv'
     ]
     dfs = []
-    #df_list = ['preprocessed_data.csv']
     for df_name in df_list:
         for chunk in pd.read_csv(DATA_FOLDER + 'raw_data/' + df_name, chunksize=20):
-        #print(df.columns)
-        #break
-
-        #for i in chunkify(df, 200):
             x = preprocess(chunk)
             dfs.append(x)
-            # todo: remove break!! this is just for test
-            break
-            #print(x['page_content'])
 
         print(df_name)
 
     dfs = pd.concat(dfs, ignore_index=True)
-    #dfs = dfs[~dfs['page_content'].isna()]
-    print(dfs[dfs['page_content'].isna()])
     dfs.to_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv', index=False)
