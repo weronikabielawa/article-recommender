@@ -21,10 +21,10 @@ def home_view(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            article_preprocessed = preprocess(pd.DataFrame({'page_content': [form.cleaned_data['article_content']]}))
-            #tfidf = train_and_recommend(article_preprocessed)
             context['form'] = form
-            #context['result_1'] = tfidf.tolist()[0]
+            article_preprocessed = preprocess(pd.DataFrame({'page_content': [form.cleaned_data['article_content']]}))
+            tfidf = train_and_recommend(article_preprocessed)
+            context['result_1'] = tfidf.tolist()[0]
 
             tok2vec_pre = recommend(article_preprocessed)
             context['result_2'] = tok2vec_pre

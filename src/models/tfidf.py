@@ -19,7 +19,7 @@ def get_data():
 
 def train_tfidf(dfs):
     content = dfs['page_content']
-    tfidf = TfidfVectorizer()
+    tfidf = TfidfVectorizer(max_features=10)
     tfidf_matrix = tfidf.fit_transform(content)
     cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
 
