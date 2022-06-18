@@ -132,4 +132,5 @@ if __name__ == '__main__':
         print(df_name)
 
     dfs = pd.concat(dfs, ignore_index=True)
-    dfs.to_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv', index=False)
+    dfs[['page_content','url']].to_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv', index=False)
+    dfs['url'].to_csv(DATA_FOLDER + 'preprocessed_data/url.csv', index=False)

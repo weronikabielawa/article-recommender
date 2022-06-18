@@ -2,6 +2,7 @@ import numpy as np
 import spacy
 import pandas as pd
 import os
+from sklearn.metrics.pairwise import cosine_similarity
 
 from src.preprocessing.preprocessing import preprocess
 
@@ -19,36 +20,40 @@ def recommend(article):
                                                   'ner'])
 
     #preprocessing input
-    article_df = preprocess(pd.DataFrame({'page_content': [article]}))
-    article_preprocessed = article_df.loc[0, 'page_content']
+    article_preprocessed = article.loc[0, 'page_content']
 
-    df = pd.read_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv')
-    df = df[~df['page_content'].isna()]
-    df['page_content'] = df['page_content'].apply(lambda x: nlp(x))
-    embed_mat = df['page_content'].values
+    df = pd.read_csv(DATA_FOLDER + 'preprocessed_data/pretrained_spacy.csv')
+    #df = df[~df['page_content'].isna()]
+    #df['page_content'] = df['page_content'].apply(lambda x: nlp(x))
+    #embed_mat = df['page_content'].values
 
     query_embed = nlp(article_preprocessed)
-    mat = np.array([query_embed.similarity(line) for line in embed_mat])
+    mat = np.array([cosine_similarity(
+        [query_embed.vector.tolist()],
+        [[float(x) for x in i.replace('\n',' ')[1:-1].split(" ") if x!='']]
+    )[0][0] for i in df['vector']])
     index = np.argmax(mat)
 
-    return df.loc[index, 'url']
+    return pd.read_csv(DATA_FOLDER+'preprocessed_data/url.csv').loc[index, 'url']
 
 
 def save():
-    nlp = spacy.load('pl_core_news_lg')
-
+    nlp = spacy.load('pl_core_news_md')
+    print('go1')
     df = pd.read_csv(DATA_FOLDER + 'preprocessed_data/preprocessed_data.csv')
     df = df[~df['page_content'].isna()]
-
+    print('go2')
     df['page_content'] = df['page_content'].apply(lambda x: nlp(x))
-    embed_mat = df['page_content'].values
+    df['vector'] = df['page_content'].apply(lambda x: x.vector)
+    print('go3')
+    #df = pd.DataFrame({"page_content": embed_mat})
+    df['vector'].to_csv(DATA_FOLDER + 'preprocessed_data/pretrained_spacy.csv', index=False)
 
-    df = pd.DataFrame({"page_content": embed_mat})
-    df.to_pickle(DATA_FOLDER + 'preprocessed_data/embed_mat.pkl')
-    return embed_mat
 
-
-"""if __name__=='__main__':
-    save()
-    print('go')"""
+if __name__ == '__main__':
+    #print("start")
+    #save()
+    #print('go')\
+    df = pd.DataFrame({'page_content': ['woda drzewa las']})
+    x=recommend(df)
 

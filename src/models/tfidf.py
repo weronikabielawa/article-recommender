@@ -34,9 +34,8 @@ def recommend(cosine_similarities, df, i, n=2):
 def train_and_recommend(article_content):
 
     corpus = get_data()
-    new_data = preprocess(pd.DataFrame({'page_content': [article_content]}))
 
-    corpus = pd.concat([corpus, new_data], ignore_index=True)
+    corpus = pd.concat([corpus, article_content], ignore_index=True)
     index = corpus.shape[0] - 1
 
     tf_model = train_tfidf(corpus)
