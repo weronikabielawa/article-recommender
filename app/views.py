@@ -22,15 +22,15 @@ def home_view(request):
             # ...
             # redirect to a new URL:
             article_preprocessed = preprocess(pd.DataFrame({'page_content': [form.cleaned_data['article_content']]}))
-            tfidf = train_and_recommend(article_preprocessed)
+            #tfidf = train_and_recommend(article_preprocessed)
             #context['form'] = form
             #context['result_1'] = tfidf.tolist()[0]
 
-            tok2vec_pre = recommend(article_preprocessed)
-            context['result_2'] = tok2vec_pre
+            #tok2vec_pre = recommend(article_preprocessed)
+            #context['result_2'] = tok2vec_pre
 
-            #doc2vec = recommend_doc2vec(article_preprocessed)
-            #context['result_3'] = doc2vec
+            doc2vec = recommend_doc2vec(article_preprocessed)
+            context['result_3'] = doc2vec
 
 
             return render(request, "home.html", context)
