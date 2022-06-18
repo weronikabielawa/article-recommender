@@ -19,11 +19,11 @@ def get_data():
 
 def train_tfidf(dfs):
     content = dfs['page_content']
-    tfidf = TfidfVectorizer(max_features=10)
+    tfidf = TfidfVectorizer()
     tfidf_matrix = tfidf.fit_transform(content)
-    cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
+    #cosine_similarities = linear_kernel(tfidf_matrix, tfidf_matrix)
 
-    return cosine_similarities
+    return tfidf, tfidf_matrix
 
 
 def recommend(cosine_similarities, df, i, n=2):
@@ -35,15 +35,19 @@ def train_and_recommend(article_content):
 
     corpus = get_data()
 
-    corpus = pd.concat([corpus, article_content], ignore_index=True)
-    index = corpus.shape[0] - 1
+    #corpus = pd.concat([corpus, article_content], ignore_index=True)
+    #index = corpus.shape[0] - 1
 
-    tf_model = train_tfidf(corpus)
-    cos_sim = cosine_similarity(tf_model, tf_model)
+    tfidf_model, tfidf_matrix = train_tfidf(corpus)
+    
+    new_data = tfidf_model.transform([article_content.loc[0,'page_content']])
+    #cos_sim = cosine_similarity(tf_model, tf_model)
 
-    recommendations = recommend(cos_sim, corpus, index)
+    #recommendations = recommend(cos_sim, corpus, index)
+    z = [cosine_similarity(i,new_data) for i in tfidf_matrix]
+    index = z.index(max(z))
 
-    return recommendations
+    return corpus.loc[0, 'url']
 
 
 
