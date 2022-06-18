@@ -47,7 +47,7 @@ def train_and_recommend(article_content):
     z = [cosine_similarity(i,new_data) for i in tfidf_matrix]
     index = z.index(max(z))
 
-    return corpus.loc[0, 'url']
+    return corpus.loc[index, 'url']
 
 
 
