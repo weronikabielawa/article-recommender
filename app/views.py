@@ -24,7 +24,7 @@ def home_view(request):
             context['form'] = form
             article_preprocessed = preprocess(pd.DataFrame({'page_content': [form.cleaned_data['article_content']]}))
             tfidf = train_and_recommend(article_preprocessed)
-            context['result_1'] = tfidf.tolist()[0]
+            context['result_1'] = tfidf
 
             tok2vec_pre = recommend(article_preprocessed)
             context['result_2'] = tok2vec_pre
