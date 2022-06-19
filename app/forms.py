@@ -5,5 +5,5 @@ from django import forms
 
 # creating a form
 class InputForm(forms.Form):
-    article_content = forms.CharField(widget=forms.Textarea(attrs={'name':'body', 'rows':'40', 'cols':'50'}))
+    treść_artykułu = forms.CharField(widget=forms.Textarea(attrs={'name':'body', 'rows':'40', 'cols':'50'}))
 

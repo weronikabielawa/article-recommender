@@ -14,15 +14,11 @@ from src.preprocessing.preprocessing import preprocess
 def recommender(request):
     context = {}
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
         form = InputForm(request.POST)
-        # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
+
             context['form'] = form
-            article_preprocessed = preprocess(pd.DataFrame({'page_content': [form.cleaned_data['article_content']]}))
+            article_preprocessed = preprocess(pd.DataFrame({'page_content': [form.cleaned_data['treść_artykułu']]}))
             tfidf = train_and_recommend(article_preprocessed)
             context['result_1'] = tfidf
 
@@ -35,7 +31,6 @@ def recommender(request):
 
             return render(request, "recommender.html", context)
 
-    # if a GET (or any other method) we'll create a blank form
     else:
         form = InputForm()
 
