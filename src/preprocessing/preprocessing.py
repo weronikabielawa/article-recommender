@@ -56,10 +56,9 @@ def remove_tokens(df, col_name='page_content'):
 
 
 def lemme(df, col_name='page_content'):
-
+    morf = morfeusz2.Morfeusz()
     def lem(s):
         result = []
-        morf = morfeusz2.Morfeusz()
         a = morf.analyse(s)
         i=0
         for j in a:
@@ -68,8 +67,9 @@ def lemme(df, col_name='page_content'):
                 result.append(j[2][1].split(':')[0])
         return " ".join(result)
 
-    for index, row in df.iterrows():
-        df.loc[index, col_name] = lem(row[col_name])
+    #for index, row in df.iterrows():
+        #df.loc[index, col_name] = lem(row[col_name])
+    df[col_name] = df.apply(lambda row: lem(row[col_name]), axis=1)
 
     return df
 
@@ -89,7 +89,7 @@ def preprocess(df, col_name='page_content'):
     df = remove_puncuation(df, col_name)
     df = lowercase(df, col_name)
     df = remove_stopwords(df, col_name)
-    #df = lemme(df, col_name)
+    df = lemme(df, col_name)
 
     return df
 
