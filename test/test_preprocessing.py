@@ -28,7 +28,7 @@ def df_without_stopwords():
 
 @pytest.fixture
 def df_uppercase():
-    return pd.DataFrame({'text': ['Przykład Numer Jeden']})
+    return pd.DataFrae({'text': ['Przykład Numer Jeden']})
 
 
 @pytest.fixture
