@@ -11,7 +11,7 @@ from src.preprocessing.preprocessing import preprocess
 
 
 # Create your views here.
-def home_view(request):
+def recommender(request):
     context = {}
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -33,29 +33,21 @@ def home_view(request):
             context['result_3'] = doc2vec
 
 
-            return render(request, "home.html", context)
+            return render(request, "recommender.html", context)
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = InputForm()
 
     context['form'] = form
-    return render(request, "home.html", context)
+    return render(request, "recommender.html", context)
 
 
-def results(request, recom):
-    print("im here")
-    #render(request, "recom")
-    #pass
-#from .models import Greeting
 
 # Create your views here.
 def index(request):
     #return HttpResponse('Hello from Python!')
     return render(request, "index.html")
 
-
-def recommender(request):
-    return render(request, "recommender.html")
 
 
