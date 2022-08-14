@@ -8,12 +8,14 @@ from src.models.tfidf import train_and_recommend
 from src.models.tok2vec_pretrained import recommend
 from src.models.trained_word2vec import recommend_doc2vec
 from src.preprocessing.preprocessing import preprocess
+import os
 
 
 # Create your views here.
 def recommender(request):
     context = {}
     if request.method == 'POST':
+        os.system('heroku ps:restart web -a boiling-lowlands-72442')
         form = InputForm(request.POST)
         if form.is_valid():
 
