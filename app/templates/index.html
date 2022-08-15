@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="'stylesheet" href={%  static  'css/index.css' %}>
-    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="static/css/index.css">
+    <title>Aplikacja</title>
 </head>
 <body>
-<p>
+<div class="bg-container">
+
+
+<div class="center">
+<p class>
     Aplikacja,która na podstawie analizy treści podpowiadająca podobne artykuły z zakresu ekologii.
 </p>
 
@@ -21,9 +25,10 @@
 </ul>
 </p>
 
-<button type="button">
-    <a href="/recommender">Otwórz</a>
-</button>
+<a href="/recommender"><span class="button">Otwórz</span></a>
 
+</div>
+
+</div>
 </body>
 </html>

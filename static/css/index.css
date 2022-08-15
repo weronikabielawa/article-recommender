@@ -1,0 +1,41 @@
+html, body {
+  margin:0;
+  height:100%;
+    overflow:hidden;
+}
+
+.bg-container {
+    background-image: url("https://www.zielonalekcja.pl/wp-content/uploads/2022/05/ekologia-1024x517.jpg");
+    background-size:cover;
+  width:100%;
+  height:100%;
+  border:1px darkolivegreen;
+    box-sizing:border-box;
+}
+
+
+.center {
+position: absolute;
+left: 40%;
+top: 35%;
+transform: translate(-50%, -50%);
+border: 5px solid darkolivegreen;
+padding: 10px;
+}
+
+.button {
+  cursor: pointer;
+background-color: floralwhite; /* Green */
+  border: solid darkolivegreen;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button:hover {
+  background-color: darkolivegreen; /* Green */
+  color: white;
+}

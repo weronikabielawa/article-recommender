@@ -1,0 +1,44 @@
+html, body {
+  margin:0;
+  height:100%;
+    overflow:hidden;
+}
+
+.bg-container {
+    background-image: url("https://whatnext.pl/wp-content/uploads/2019/10/q-82.jpg");
+    background-size:cover;
+  width:100%;
+  height:100%;
+  border:1px darkolivegreen;
+    box-sizing:border-box;
+}
+
+.center {
+position: absolute;
+left: 20%;
+top: 35%;
+transform: translate(-50%, -50%);
+padding: 10px;
+}
+
+.special {
+  opacity: 0.2;
+  border:10px darkolivegreen;
+}
+
+.button {
+  cursor: pointer;
+background-color: floralwhite; /* Green */
+  border: solid steelblue;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.button:hover {
+  background-color: steelblue; /* Green */
+  color: white;
+}
