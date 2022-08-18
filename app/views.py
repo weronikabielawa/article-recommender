@@ -75,6 +75,7 @@ def results(request, context={}):
             if 0 in [propozycja_2, propozycja_3, propozycja_1]:
                 print('wrong input ')
                 messages.error(request, 'Należy ocenić wszystkie propozycje!')
+                form = Results()
                 #return HttpResponse('Należy ocenić wszystkie propozycje!')
 
 
@@ -83,8 +84,6 @@ def results(request, context={}):
                 new_result.save()
                 #messages.success(request, 'Dziękuję za ocenę! :) ')
                 return HttpResponseRedirect('/thank_you')
-
-                del form
 
     else:
         form = Results()
