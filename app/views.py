@@ -107,16 +107,16 @@ def charts(request):
 
     print(results_1)
     #print(type(data_for_chart[0]))
-    x_1 = [i for i in set(results_1)]
-    y = [1, 2, 3, 4, 5]
+    x = [1, 2, 3, 4, 5]
+    y_1 = [results_1.count(i) for i in x]
 
-    ex.bar(x=x_1, y=y).write_image("static/charts/results1.png")
+    ex.bar(x=x, y=y_1).write_image("static/charts/results1.png")
 
-    x_2 = [i for i in set(results_2)]
+    y_2 = [results_2.count(i) for i in x]
 
-    ex.bar(x=x_2, y=y).write_image("static/charts/results2.png")
+    ex.bar(x=x, y=y_2).write_image("static/charts/results2.png")
 
-    x_3 = [i for i in set(results_3)]
+    y_3 = [results_3.count(i) for i in x]
 
-    ex.bar(x=x_3, y=y).write_image("static/charts/results3.png")
+    ex.bar(x=x, y=y_3).write_image("static/charts/results3.png")
     return render(request, "charts.html")
