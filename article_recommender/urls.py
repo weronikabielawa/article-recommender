@@ -21,7 +21,7 @@ import app.views
 urlpatterns = [
     path("", app.views.index, name="index"),
     path("recommender/", app.views.recommender, name="recommender"),
-    #path("test/", app.views.home_view, name='home'),
-    #path("results/", app.views.results, name="results"),
+    path("thank_you/", app.views.thank_you, name='thank_you'),
+    path("results/", app.views.results, name="results"),
     #path('admin/', admin.site.urls),
 ]
