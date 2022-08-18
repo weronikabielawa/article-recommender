@@ -20,9 +20,9 @@ def recommender(request):
     if request.method == 'POST':
 
         # restarting heroku dynos, so the app doesn't crash
-        #heroku_conn = heroku3.from_key('ef02e4cf-7d5f-4590-aab6-7e9ca8ecb3b8')
-        #app = heroku_conn.apps()['boiling-lowlands-72442']
-        #app.restart()
+        heroku_conn = heroku3.from_key('ef02e4cf-7d5f-4590-aab6-7e9ca8ecb3b8')
+        app = heroku_conn.apps()['boiling-lowlands-72442']
+        app.restart()
 
         form = InputForm(request.POST)
         if form.is_valid():
