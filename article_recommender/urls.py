@@ -23,5 +23,6 @@ urlpatterns = [
     path("recommender/", app.views.recommender, name="recommender"),
     path("thank_you/", app.views.thank_you, name='thank_you'),
     path("results/", app.views.results, name="results"),
+    path("charts/", app.views.charts, name="charts")
     #path('admin/', admin.site.urls),
 ]

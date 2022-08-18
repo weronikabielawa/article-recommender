@@ -11,6 +11,7 @@ from src.models.tok2vec_pretrained import recommend
 from src.models.trained_word2vec import recommend_doc2vec
 from src.preprocessing.preprocessing import preprocess
 import heroku3
+import plotly.express as ex
 
 
 # Create your views here.
@@ -94,3 +95,30 @@ def results(request, context={}):
 
 def thank_you(request):
     return render(request, "thank_you.html")
+
+
+def charts(request):
+    #ResultsModel.objects.all().delete()
+    data_for_chart = ResultsModel.objects.all()
+
+    results_1 = [i.propozycja_1 for i in data_for_chart]
+    results_2 = [i.propozycja_2 for i in data_for_chart]
+    results_3 = [i.propozycja_3 for i in data_for_chart]
+
+    print(results_1)
+    #print(type(data_for_chart[0]))
+    x_1 = [i for i in set(results_1)]
+    y_1 = [results_1.count(i) for i in set(results_1)]
+
+    ex.bar(x=x_1, y=y_1).write_image("static/charts/results1.png")
+
+    x_2 = [i for i in set(results_2)]
+    y_2 = [results_2.count(i) for i in set(results_2)]
+
+    ex.bar(x=x_2, y=y_2).write_image("static/charts/results2.png")
+
+    x_3 = [i for i in set(results_3)]
+    y_3 = [results_3.count(i) for i in set(results_3)]
+
+    ex.bar(x=x_3, y=y_3).write_image("static/charts/results3.png")
+    return render(request, "charts.html")
