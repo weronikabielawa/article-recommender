@@ -19,14 +19,9 @@ def recommend(article):
                                                   'attribute_ruler',
                                                   'ner'])
 
-    #preprocessing input
     article_preprocessed = article.loc[0, 'page_content']
 
     df = pd.read_csv(DATA_FOLDER + 'preprocessed_data/pretrained_spacy.csv')
-    #df = df[~df['page_content'].isna()]
-    #df['page_content'] = df['page_content'].apply(lambda x: nlp(x))
-    #embed_mat = df['page_content'].values
-
     query_embed = nlp(article_preprocessed)
     mat = np.array([cosine_similarity(
         [query_embed.vector.tolist()],
