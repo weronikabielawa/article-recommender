@@ -17,6 +17,6 @@ site/
 notebooks
 data
 src/models/__pycache__
-
+static/charts
 
 

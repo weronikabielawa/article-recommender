@@ -1,7 +1,7 @@
 html, body {
   margin:0;
   height:100%;
-    overflow:hidden;
+    overflow-y:scroll;
 }
 
 .bg-container {
@@ -16,7 +16,7 @@ html, body {
 .center {
 position: absolute;
 left: 50%;
-top: 25%;
+top: 40%;
 transform: translate(-50%, -50%);
 border: 5px solid saddlebrown;
 padding: 10px;
