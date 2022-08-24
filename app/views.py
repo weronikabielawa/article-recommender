@@ -105,18 +105,27 @@ def charts(request):
     results_2 = [i.propozycja_2 for i in data_for_chart]
     results_3 = [i.propozycja_3 for i in data_for_chart]
 
-    print(results_1)
+    num_of_results = len(data_for_chart)
+    mean_1 = sum(results_1) / num_of_results
+    mean_2 = sum(results_2) / num_of_results
+    mean_3 = sum(results_3) / num_of_results
+    context = {}
+    context['mean_1'] = mean_1
+    context['mean_2'] = mean_2
+    context['mean_3'] = mean_3
+    print((str(mean_1), mean_2, mean_3))
+    #print(results_1)
     #print(type(data_for_chart[0]))
     x = [1, 2, 3, 4, 5]
     y_1 = [results_1.count(i) for i in x]
 
-    ex.bar(x=x, y=y_1).write_image("static/charts/results1.png")
+    ex.bar(x=x, y=y_1).update_layout(xaxis_title="Ocena", yaxis_title="Ilość").write_image("static/charts/results1.png")
 
     y_2 = [results_2.count(i) for i in x]
 
-    ex.bar(x=x, y=y_2).write_image("static/charts/results2.png")
+    ex.bar(x=x, y=y_2).update_layout(xaxis_title="Ocena", yaxis_title="Ilość").write_image("static/charts/results2.png")
 
     y_3 = [results_3.count(i) for i in x]
 
-    ex.bar(x=x, y=y_3).write_image("static/charts/results3.png")
-    return render(request, "charts.html")
+    ex.bar(x=x, y=y_3).update_layout(xaxis_title="Ocena", yaxis_title="Ilość").write_image("static/charts/results3.png")
+    return render(request, "charts.html", context)

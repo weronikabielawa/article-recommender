@@ -2,24 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="../static/css/charts.css">
     <title>Title</title>
 </head>
 <body>
+    <div>
+        <a href="/"><span class="button">Powrót</span></a>
+    </div>
     {% load static %}
     <div>
         <p>Oceny modelu nr 1</p>
+        <p> Średnia ocen: {{ mean_1 }}</p>
         <img src="../../static/charts/results1.png" alt="Dinosaur">
     </div>
     <div>
         <p>Oceny modelu nr 2</p>
+        <p>Średnia ocen: {{ mean_2 }}</p>
         <img src="../../static/charts/results2.png" alt="Dinosaur">
     </div>
     <div>
         <p>Oceny modely nr 3</p>
+        <p>Średnia ocen: {{ mean_3 }}</p>
         <img src="../../static/charts/results3.png" alt="Dinosaur">
-    </div>
-    <div>
-        <a href="/"><span class="button">Powrót</span></a>
     </div>
 </body>
 </html>
